@@ -6,14 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/with/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      # Corrected case-sensitive action name
       - name: Build APK with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
         with:
@@ -25,4 +24,3 @@ jobs:
         with:
           name: package
           path: bin/*.apk
-          

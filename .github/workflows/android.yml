@@ -6,16 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/with/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      # This action handles all the messy Android tool installations in the cloud
+      # Corrected case-sensitive action name
       - name: Build APK with Buildozer
-        uses: ArtemGovorov/buildozer-action@v1
+        uses: ArtemSBulgakov/buildozer-action@v1
         with:
           command: buildozer android debug
           repository_root: .

@@ -1,0 +1,28 @@
+name: Build Android APK
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # This action handles all the messy Android tool installations in the cloud
+      - name: Build APK with Buildozer
+        uses: ArtemGovorov/buildozer-action@v1
+        with:
+          command: buildozer android debug
+          repository_root: .
+
+      - name: Upload Finished APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: package
+          path: bin/*.apk
+          

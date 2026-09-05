@@ -8,19 +8,8 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
       - name: Build APK with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
         with:
           command: buildozer android debug
           repository_root: .
-
-      - name: Upload Finished APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: package
-          path: bin/*.apk

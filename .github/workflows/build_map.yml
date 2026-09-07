@@ -27,5 +27,5 @@ jobs:
       - name: Olusan Haritayi Artifact Olarak Kaydet
         uses: actions/upload-artifact@v4
         with:
-      - name: minecraft-full-map
+          name: minecraft-full-map
           path: minecraft_full_map_minecraft_yeni_z5.png
